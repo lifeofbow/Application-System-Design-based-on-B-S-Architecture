@@ -5,6 +5,28 @@
 	<title>RFID 登录界面</title>
 	<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 	<link rel = "Shortcut Icon" href=logo/favicon.ico>
+	<style type="text/css">
+		#code
+		{
+			font-family:Arial;
+			font-style:italic;
+			font-weight:bold;
+			border:0;
+			letter-spacing:2px;
+			color:blue;
+		}
+		#input{
+			width: 150px;
+			height: 20px;
+			float:left;
+		}
+		#check{
+			margin-top: 30px;
+		}
+		#button{
+			float:right;
+		}
+	</style>
 </head>
 <body>
 	<section class="login-form-wrap">
@@ -12,8 +34,16 @@
 		<form class="login-form" method="post" action="http://localhost/RFID/login.php">
 			<label><input type="text" name="user" required placeholder="账号"></label>
 			<label><input type="password" name="password" required placeholder="密码"></label>
-			<input type="submit" value="Login">
+			<div id="check">
+				<input type = "text" id = "input"/ required placeholder="输入验证码">
+				<input type = "button" id="code" onclick="createCode()"/>
+				<input id = "button" type = "button" value = "验证" onclick = "validate()"/>
+			</div>
+			<input type="submit"  id="subButton" value="Login" style="display:none">
+			
 		</form>
 	</section>
+
+	<script type = "text/javascript" src = "checkCode.js"></script>
 </body>
 </html>
